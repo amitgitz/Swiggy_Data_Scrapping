@@ -3,7 +3,7 @@ import requests
 import sys
 import io
 with io.open('Mumbai.csv','w',encoding='utf-8') as f1:
-    f1.write('name,area,address,totalRatingsString,deliveryTime,minDeliveryTime,maxDeliveryTime,costForTwoString+\n')
+    f1.write('name,area,totalRatingsString,deliveryTime,minDeliveryTime,maxDeliveryTime,costForTwoString+\n')
     f1.close()
 sys.stdout.reconfigure(encoding='utf-8')
 
@@ -75,7 +75,6 @@ for i in range (page_no):
     for i in range(len(data1)):
         name = data1[i]['data']['data']['name']
         area = data1 [i]['data']['data']['area']
-        address = data1 [i]['data']['data']['address']
         totalRatingsString = data1 [i]['data']['data']['totalRatingsString']
         deliveryTime = data1 [i]['data']['data']['deliveryTime']
         minDeliveryTime = data1 [i]['data']['data']['minDeliveryTime']
@@ -83,7 +82,7 @@ for i in range (page_no):
         costForTwoString = data1 [i]['data']['data']['costForTwoString']
       
    
-        scrapped_data = (name+", "+area+" ,"+address+","+totalRatingsString+", "+str(deliveryTime)+","+str(minDeliveryTime)+","+str(maxDeliveryTime)+","+costForTwoString)
+        scrapped_data = (name+", "+area+","+totalRatingsString+", "+str(deliveryTime)+","+str(minDeliveryTime)+","+str(maxDeliveryTime)+","+costForTwoString)
         with io.open('Mumbai.csv','a',encoding = 'utf-8') as f2:
             f2.write(scrapped_data+'\n')
             f2.close()
